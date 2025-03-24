@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <marquee width="100%"
+        behavior="alterrnate"
+        bgcolor="red">sabari</marquee>
+    </body>
+</html>
