@@ -1,0 +1,116 @@
+in java .
+today learnings 
+
+
+1.....Nice try! But the code you wrote is not valid Java syntax. Let's take a close look at what you tried:
+
+---
+
+### ❌ Problematic Code:
+
+```java
+public class Main {          
+    int s = 10;    
+    System.out.println(s);  // ❌ Error here
+
+    public static void main(String[] args) {
+        // System.out.println(s);
+    }
+}
+```
+
+---
+
+### ❗ What's wrong?
+
+You’re trying to execute `System.out.println(s);` **directly inside the class body**, **outside of any method or block**. That’s **not allowed in Java**.
+
+In Java:
+- You can **declare variables** at the class level.
+- But you **cannot write executable statements** like `System.out.println(...)` directly in the class body (outside methods or static blocks).
+
+---
+
+### ✅ Correct Version:
+
+If you want to print the instance variable `s`, you should do it inside a method, like this:
+
+```java
+public class Main {
+    int s = 10;
+
+    public static void main(String[] args) {
+        Main obj = new Main(); // Create object to access non-static variable
+        System.out.println(obj.s);  // ✅ prints 10
+    }
+}
+```
+
+---
+
+### 🧠 Summary:
+| Part                     | Valid? | Notes |
+|--------------------------|--------|-------|
+| Class-level variable     | ✅     | `int s = 10;` is fine. |
+| Print statement in class | ❌     | Not allowed outside methods. |
+| Accessing non-static `s` from static `main` | ✅ | Use `new Main().s` |
+
+---
+
+Let me know if you'd like to see how to use static variables instead!
+
+
+
+2,...
+Great! Let's walk through this Java code carefully:
+
+```java
+public class Main {
+    int s = 27;  // Instance variable
+
+    public static void main(String[] args) {
+        int s = 10;  // Local variable
+        System.out.println(s);  // Line A
+        // Line B
+    }
+}
+```
+
+---
+
+### 🧠 Key Concepts:
+1. `int s = 27;` is an **instance variable** (non-static).
+2. `int s = 10;` is a **local variable** inside the `main` method.
+3. `System.out.println(s);` prints the local variable `s`, because **local variables shadow instance variables** inside their scope.
+4. The `main` method is `static`, and `s = 27` is **non-static**, so it **cannot be accessed directly** from `main`.
+
+---
+
+### ✅ Output:
+
+```java
+10
+```
+
+Only the local variable `s` is accessible inside `main`, so it prints `10`.
+
+---
+
+### ❓What if you want to access `s = 27` (the instance variable) from `main`?
+
+You need to create an object of the class:
+
+```java
+public class Main {
+    int s = 27;
+
+    public static void main(String[] args) {
+        Main obj = new Main();
+        System.out.println(obj.s);  // prints 27
+    }
+}
+```
+
+---
+
+Let me know if you want to go deeper into variable scope, shadowing, or static vs non-static behavior in Java!
