@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Git Activity Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    .status-pushed {
+      background-color: #c8e6c9;
+      color: #2e7d32;
+    }
+    .status-not-pushed {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Team Git Activity Tracker</h1>
+  <table id="activityTable">
+    <thead>
+      <tr>
+        <th>Team Member</th>
+        <th>GitLab Username</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be inserted here -->
+    </tbody>
+  </table>
+  <button onclick="checkActivity()">Check Today's Git Activity</button>
+  <button onclick="downloadCSV()">Download Report</button>
+
+  <script>
+    const team = [
+      { name: "Vigneshwaralingam", username: "vigneshwaralingam" },
+      { name: "Elayaraj C", username: "elayaraj31" },
+      { name: "iyappan g", username: "iyappan_009" },
+       { name: "Haryni RR", username: "Haryniramesh" }
+    ];
+
+    const tableBody = document.querySelector("#activityTable tbody");
+    let reportData = [];
+
+    async function checkActivity() {
+      const today = new Date().toISOString().split("T")[0];
+      tableBody.innerHTML = "";
+      reportData = [];
+
+      for (const member of team) {
+        const response = await fetch(
+          `https://gitlab.com/api/v4/users/${member.username}/events?after=${today}`
+        );
+        const data = await response.json();
+
+        const pushedToday = data.some(
+          (event) => event.action_name === "pushed to"
+        );
+
+        const status = pushedToday ? "✅ Pushed" : "❌ Not Pushed";
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${member.name}</td>
+          <td>${member.username}</td>
+          <td class="${pushedToday ? "status-pushed" : "status-not-pushed"}">
+            ${status}
+          </td>
+        `;
+
+        tableBody.appendChild(row);
+
+        reportData.push({
+          name: member.name,
+          username: member.username,
+          status: status
+        });
+      }
+    }
+
+    function downloadCSV() {
+      let csvContent = "data:text/csv;charset=utf-8,Name,Username,Status\n";
+      reportData.forEach(row => {
+        csvContent += `${row.name},${row.username},${row.status}\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "git_activity_report.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
