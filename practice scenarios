@@ -1,0 +1,76 @@
+Absolutely! Scenario-based questions help you think practically. Here are a few Java **constructor and method-based** practice questions with **real-life scenarios** to boost your skills:
+
+---
+
+### 🔶 **Scenario 1: Bank Account System**
+Create a `BankAccount` class.
+
+#### Requirements:
+- Fields: `accountNumber`, `accountHolderName`, `balance`
+- Constructor to initialize the details
+- Methods:
+  - `deposit(double amount)`
+  - `withdraw(double amount)`
+  - `displayBalance()`
+
+#### 🧠 Challenge:
+1. Prevent withdrawing if balance is insufficient.
+2. Add a method `changeAccountHolderName(String newName)`
+
+---
+
+### 🔷 **Scenario 2: College Student Marks System**
+Create a `Student` class to track marks.
+
+#### Requirements:
+- Fields: `studentName`, `rollNumber`, `marks1`, `marks2`, `marks3`
+- Constructor to initialize all fields
+- Methods:
+  - `calculateAverage()`
+  - `checkPassStatus()` — pass if average ≥ 40
+  - `displayDetails()`
+
+#### 🧠 Challenge:
+1. Add a method to update marks.
+2. Add method overloading for `calculateAverage(int extraMark)`.
+
+---
+
+### 🔸 **Scenario 3: Online Shopping – Product Inventory**
+Create a `Product` class for an e-commerce website.
+
+#### Requirements:
+- Fields: `productId`, `productName`, `price`, `quantityAvailable`
+- Constructor to initialize product
+- Methods:
+  - `buyProduct(int quantity)`
+  - `restockProduct(int quantity)`
+  - `displayProductInfo()`
+
+#### 🧠 Challenge:
+1. Ensure buying more than available quantity shows a warning.
+2. Add discount feature: `applyDiscount(double percent)`
+
+---
+
+### 🔹 **Scenario 4: Library Management**
+Create a `Book` class to manage books in a library.
+
+#### Requirements:
+- Fields: `title`, `author`, `ISBN`, `isIssued`
+- Constructor to initialize book
+- Methods:
+  - `issueBook()`
+  - `returnBook()`
+  - `displayBookInfo()`
+
+#### 🧠 Challenge:
+1. Prevent issuing an already issued book.
+2. Keep a count of how many books are currently issued (static variable).
+
+---
+
+### 📝 Want an assignment format?
+I can generate a full assignment with instructions, starter code, and questions if you want. Just say the word!
+
+Would you like to try one of these now and I can guide you while you code?

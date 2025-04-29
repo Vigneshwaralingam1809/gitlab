@@ -17,7 +17,7 @@ first(name);
 
 public static void first(int[] name)
 {
-for (int i=0; i<= name.length -1 ;i++)
+for (int i=0; i<= name.length -1;i++)
     {
         System.out.println(name[i]);
 
