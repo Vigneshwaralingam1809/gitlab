@@ -11,5 +11,8 @@ String[] arr={"vigneshwaralingam"};
 char name=arr.toCharArray();
 System.out.print(arr[4]);
 System.out.print(arr[4]);
+System.out.print(arr[4]);
+System.out.print(arr[4]);
+
 }
 }
