@@ -1,18 +1,30 @@
 class May6{
 public static void main(String[]args)
 {
-//int[] arr =new arr[5];
 
-//for(int i=0;i<arr.length;i++)
-//{System..out,print(arr[i]);
+for(int r=1;r<=5;r++)
+    {
+        int no =6-r;
 
-String[] arr={"vigneshwaralingam"};
+      for(int s=1;s<=5;s++)
+        {
+          if(s==1)
+             {
+             }
+         else
+           {
+            System.out.print(" ");
 
-char name=arr.toCharArray();
-System.out.print(arr[4]);
-System.out.print(arr[4]);
-System.out.print(arr[4]);
-System.out.print(arr[4]);
+           }
+        }
+    for(int c=1;c<=6-r;c++)
+        {
+            System.out.print(no+" ");
+            no--;
 
+        }
+
+System.out.println();
+    }
 }
 }
