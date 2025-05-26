@@ -1,0 +1,52 @@
+open library
+internet archive
+world cat
+books wbpage
+use first next contribute
+
+
+ssh key genration:
+
+ignesh@Linux:~$ ssh-keygen -t ed25519 -C "m.vigneshwaralingam@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/vignesh/.ssh/id_ed25519):
+Created directory '/home/vignesh/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/vignesh/.ssh/id_ed25519
+Your public key has been saved in /home/vignesh/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:ua3QhcIty6ytLeLWc1Kawc1lMbYgULURYyZ2lB+TY78 m.vigneshwaralingam@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|  .o+oXo .       |
+|   ..=o+X        |
+|     ..= O       |
+|     . .=o.      |
+|   . o+oS ..     |
+|    oo+= +E      |
+|   . == o .      |
+|  o B+.. .       |
+| o..o*o .        |
++----[SHA256]-----+
+vignesh@Linux:~$
+
+
+SHA256:ua3QhcIty6ytLeLWc1Kawc1lMbYgULURYyZ2lB+TY78 m.vigneshwaralingam@gmail.com
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIjNHfOM+u8ycz5jjgtj7ydrA+3Qv1lZEL+0dh0cZocM m.vigneshwaralingam@gmail.com
+ssh what is why it si secure where it is used why hhtps is less secure
+
+vignesh@Linux:~$ git clone git@github.com:Vigneshwaralingam1809/openlibrary.git
+Cloning into 'openlibrary'...
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+ERROR: Repository not found.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+vignesh@Linux:~$
